@@ -7,6 +7,7 @@ if not cap.isOpened():
     print("Can not open video")
     exit()
 i = 1
+
 while True:
     # Capture frame-by-frame
     ret, frame = cap.read()
@@ -16,17 +17,9 @@ while True:
         print("Can't receive frame (stream end?). Exiting ...")
         break
     # Our operations on the frame come here
-    if randint(0,1000)> 990:
+    if randint(0,1000)> 996:
         cv.imwrite(f'frames/{i}.jpg', frame)
         i += 1
-        
-    '''if i % 500 == 0:
-        gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-        # Display the resulting frame
-
-        cv.imshow('frame', gray)
-        if cv.waitKey(1) == ord('q'):
-            break'''
      
 print(f'num of frames {i}')
 # When everything done, release the capture

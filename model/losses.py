@@ -55,9 +55,6 @@ class FocalLoss(nn.Module):
     def forward(self, pred, target):
         # pred: [batch_size, num_classes, H, W] (logits)
         # target: [batch_size, H, W] (class indices)
-        # Move to same device
-        if self.alpha is not None:
-            self.alpha = self.alpha.to(pred.device)
 
         # Compute softmax probabilities
         pred_prob = torch.softmax(pred, dim=1)  # [batch_size, num_classes, H, W]
