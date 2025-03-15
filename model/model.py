@@ -35,7 +35,7 @@ class SegmentationModel(nn.Module):
         x = self.encoder(x)  # [batch_size, 576, 7, 7]
         x = self.segmentation_head(x)      # [batch_size, 4, 224, 224]
 
-        if labels is not None:
-            loss = F.cross_entropy(x, labels)
-            return loss, x
+        # if labels is not None:
+        #     loss = F.cross_entropy(x, labels)
+        #     return loss, x
         return x
